@@ -112,7 +112,7 @@ module Google
       self.user_agent = options[:user_agent] || (
         "#{application_string} " +
         "google-api-ruby-client/#{Google::APIClient::VERSION::STRING} #{ENV::OS_VERSION} (gzip)"
-      ).strip
+      ).gsub(/[\n\r]/," ").strip
       # The writer method understands a few Symbols and will generate useful
       # default authentication mechanisms.
       self.authorization =
